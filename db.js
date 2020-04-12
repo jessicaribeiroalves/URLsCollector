@@ -6,7 +6,7 @@ const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
 db.once('open', function () {
   // we're connected!
-  console.log('conectado');
+  console.log('Connected and starting to call the following URLs...');
 });
 
 const disconnect = () => {
