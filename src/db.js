@@ -16,6 +16,7 @@ const disconnect = () => {
 
 // DB Schema
 const linksSchema = new mongoose.Schema({
+  id: String,
   link: String,
   initialUrl: String,
   parentUrl: String,
@@ -29,8 +30,9 @@ const queueSchema = new mongoose.Schema({
 const Queue = mongoose.model('Queue', queueSchema);
 
 // DB CRUD
-const createLink = (url, initialUrl, parentUrl) => {
+const createLink = (id, url, initialUrl, parentUrl) => {
   let link = new Link({
+    id: id,
     link: url,
     initialUrl: initialUrl,
     parentUrl: parentUrl
@@ -52,8 +54,8 @@ function getSavedLinks(url) {
   return Link.find({ initialUrl: url }).exec();
 }
 
-async function isKnownUrl(url) {
-  const response = await Link.findOne({ link: url }).exec();
+async function isKnownUrl(urlId) {
+  const response = await Link.findOne({ id: urlId }).exec();
   return response !== null
 }
 
