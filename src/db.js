@@ -46,7 +46,7 @@ const createQueue = (url, initialUrl) => {
 }
 
 // DB Queries
-function getFirstFromQueue() {
+function getItemFromQueue() {
   return Queue.findOneAndDelete().exec();
 }
 
@@ -66,7 +66,7 @@ module.exports = {
   createLink,
   createQueue,
   disconnect,
-  getFirstFromQueue,
+  getItemFromQueue,
   getSavedLinks,
   isKnownUrl,
 }
