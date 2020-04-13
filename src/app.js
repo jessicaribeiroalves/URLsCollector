@@ -54,8 +54,9 @@ async function indexAllPages(url) {
             const linkId = createUrlId(normalizedUrl);
             const checkUrl = await db.isKnownUrl(linkId);
             if (!checkUrl) {
+              const parentUrl = createUrlId(link);
               await db.createQueue(normalizedUrl, urlId);
-              await db.createLink(linkId, normalizedUrl, urlId, link);
+              await db.createLink(linkId, normalizedUrl, urlId, parentUrl);
             }
           }
         }));
