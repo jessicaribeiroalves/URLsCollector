@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 
 // DB Connection
-mongoose.connect('mongodb://localhost/URLsChallenge', { useNewUrlParser: true, useUnifiedTopology: true });
+mongoose.connect('mongodb://database/URLsChallenge', { useNewUrlParser: true, useUnifiedTopology: true });
 
 const db = mongoose.connection;
 db.on('error', console.error.bind(console, 'connection error:'));
@@ -12,7 +12,6 @@ db.once('open', function () {
 const disconnect = () => {
   db.close();
 }
-// TODO create connect function to not connect to DB when db.js is required
 
 // DB Schema
 const linksSchema = new mongoose.Schema({
