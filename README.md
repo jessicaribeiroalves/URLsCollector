@@ -14,6 +14,7 @@ App to collect web links (URL’s) from a given initial web link (URL)
 
 ## Set up
 - Install and set up [Docker](https://www.docker.com/get-started);
+- Install and set up [Docker Compose](https://docs.docker.com/compose/install/);
 - Suggestion: in case you want to check database as a client, you can use [MongoDB Compass](https://www.mongodb.com/products/compass) for a nicer interface connecting to ```port 27017```.
 
 ## Running the App
